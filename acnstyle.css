@@ -112,6 +112,7 @@ p.cv{text-align:left; font-size: 0.85em;}
   margin:0; /* no gap between details and expander */
   display: none; /** the details are normally hidden**/
 }
+/* tilde applies style to element matching second selector (here .details) if it appears after elements matching 1st selector (checked input), presumably both have to be inside an accordion element */
 .accordion input:checked ~ .details {
   display: block; /** show details when checkbox is checked **/
 }
@@ -131,8 +132,6 @@ p.cv{text-align:left; font-size: 0.85em;}
 }
   
 .accordion label::after {
-
-
   content: "\25ba"; /* right facing arrow */
   padding-left: 1ch;
 }
