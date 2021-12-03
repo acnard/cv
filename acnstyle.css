@@ -98,8 +98,8 @@ table {width:100%; border-collapse:collapse; }
 td, th {border: 1px solid; background-color:white; padding-left:0.5em; }
 
 /** cv-specific styling */
-table.cv{ line-height:1.2em; max-width:100ch;}
-table.cv td {border-style: none; vertical-align:text-top; padding-bottom:0.3em;}
+table.cv{ line-height:1.2em; /*max-width:100ch*/; } /*removed max width now that tables wrapped in sections */
+table.cv td {border-style: none; vertical-align:text-top; padding-bottom:0.3em; }
 table.cv th{width:20%; text-align:right; border-style: none; padding-right:1em; vertical-align:text-top; font-weight: normal; font-size:0.9em;}
 p.cv{text-align:left; font-size: 0.85em;}
 .skill{color: #e62e00; }
@@ -139,6 +139,30 @@ p.cv{text-align:left; font-size: 0.85em;}
     content: "\25bc"; /*change to down-facing arrow*/
 }
 
+/** RESPONSIVE SECTIONS (EXPERIMENTAL) **/
+
+/* default behavior is all sections one on top of the other (100% wide) 
+   but we prevent the sections from growing wider than 100 ch*/
+section {
+  background-color: aliceblue;
+  width: 100%;
+  overflow: hidden;
+  max-width: 100ch;
+
+}
+
+
+/* from tablet size up, we make certain sections smaller and float them so they stack horizontally */
+/* sections will occupy 50% of width up until the limit of 50ch */
+@media (min-width: 768px) {
+  #personal, #languages {
+    width: 50%;
+    max-width: 50ch;
+    float: left;
+  }
+}
+
+
 
 
 /** styling used by applets **/
@@ -148,6 +172,4 @@ p.cv{text-align:left; font-size: 0.85em;}
 cite{font-style:oblique; }
 .data{font-size:0.7em; }
 caption {caption-side:bottom; font-variant:small-caps; }
-
-
 
